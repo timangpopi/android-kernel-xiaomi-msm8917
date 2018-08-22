@@ -129,7 +129,7 @@ struct fastrpc_buf {
 	struct fastrpc_file *fl;
 	void *virt;
 	uint64_t phys;
-	size_t size;
+	ssize_t size;
 	struct dma_attrs attrs;
 	uintptr_t raddr;
 	uint32_t flags;
@@ -429,7 +429,7 @@ static int fastrpc_mmap_find(struct fastrpc_file *fl, int fd, uintptr_t va,
 	return -ENOTTY;
 }
 
-static int dma_alloc_memory(dma_addr_t *region_start, void **vaddr, size_t size,
+static int dma_alloc_memory(dma_addr_t *region_start, void **vaddr, ssize_t size,
 			struct dma_attrs *attrs)
 {
 	struct fastrpc_apps *me = &gfa;
@@ -665,7 +665,7 @@ bail:
 	return err;
 }
 
-static int fastrpc_buf_alloc(struct fastrpc_file *fl, size_t size,
+static int fastrpc_buf_alloc(struct fastrpc_file *fl, ssize_t size,
 				struct dma_attrs attr, uint32_t rflags,
 				int remote, struct fastrpc_buf **obuf)
 {
@@ -1572,7 +1572,7 @@ static int fastrpc_init_process(struct fastrpc_file *fl,
 	int err = 0;
 	struct fastrpc_ioctl_invoke_fd ioctl;
 	struct smq_phy_page pages[1];
-	struct fastrpc_mmap *file = NULL, *mem = NULL;
+	struct fastrpc_mmap *file = 0, *mem = 0;
 	struct fastrpc_buf *imem = NULL;
 
 	if (init->flags == FASTRPC_INIT_ATTACH) {
@@ -1949,7 +1949,7 @@ static int fastrpc_internal_mmap(struct fastrpc_file *fl,
 				 struct fastrpc_ioctl_mmap *ud)
 {
 
-	struct fastrpc_mmap *map = NULL;
+	struct fastrpc_mmap *map = 0;
 	struct fastrpc_buf *rbuf = NULL;
 	uintptr_t raddr = 0;
 	int err = 0;
