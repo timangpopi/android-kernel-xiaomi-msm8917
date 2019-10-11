@@ -1,8 +1,10 @@
-version: 2.1
+version: 2
 jobs:
-  compile:
+  Clang-9.0.8:
     docker:
       - image: ubuntu:18.04
+    environment:
+      is_test: false
     steps:
       - run: apt-get -y update && apt-get -y upgrade && apt-get -y install bc binutils python g++ build-essential zip curl libstdc++6 git wget
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
@@ -10,7 +12,11 @@ jobs:
       - run: chmod +x Clang-9.0.8
       - run: bash Clang-9.0.8
 workflows:
-  version: 2.1
-  cooking:
-    jobs:
-      - compile
+  version: 2
+  BakingIt:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only: lineage-16.0
