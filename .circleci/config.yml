@@ -6,9 +6,9 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade && apt-get -y install bc binutils python g++ build-essential zip curl libstdc++6 git wget
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Test-clang
-      - run: chmod +x Test-clang
-      - run: bash Test-clang
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8
+      - run: chmod +x Clang-9.0.8
+      - run: bash Clang-9.0.8
 workflows:
   version: 2.1
   cooking:
