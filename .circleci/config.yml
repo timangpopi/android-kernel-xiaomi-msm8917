@@ -6,18 +6,18 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex
-      - run: chmod +x Clang-9.0.8-rolex
-      - run: bash Clang-9.0.8-rolex
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/script/Clang-Redmi-4A
+      - run: chmod +x Clang-Redmi-4A
+      - run: bash Clang-Redmi-4A
   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-riva
-      - run: chmod +x Clang-9.0.8-riva
-      - run: bash Clang-9.0.8-riva
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/script/Clang-Redmi-5A
+      - run: chmod +x Clang-Redmi-5A
+      - run: bash Clang-Redmi-5A
 workflows:
   version: 2.1
   cooking:
