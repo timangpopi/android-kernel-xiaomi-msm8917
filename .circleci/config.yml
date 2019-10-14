@@ -9,7 +9,7 @@ jobs:
       - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex
       - run: chmod +x Clang-9.0.8-rolex
       - run: bash Clang-9.0.8-rolex
-  Clang-9.0.8:
+  Clang-9.0.8-riva:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
