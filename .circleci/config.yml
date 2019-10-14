@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  Clang-9.0.8-rolex:
+  compile:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
@@ -9,7 +9,7 @@ jobs:
       - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex
       - run: chmod +x Clang-9.0.8-rolex
       - run: bash Clang-9.0.8-rolex
-  Clang-9.0.8-riva:
+  compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
@@ -22,5 +22,5 @@ workflows:
   version: 2.1
   cooking:
     jobs:
-      - Clang-9.0.8-rolex
-      - Clang-9.0.8-riva
+      - compile
+      - compiletoo
