@@ -6,8 +6,8 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: git clone --depth=1 https://github.com/timangpopi/Anykernel-both Anykernel
-      - run: bash Anykernel/nyoba.sh
+      - run: git clone --depth=1 https://github.com/timangpopi/Anykernel-both Compile
+      - run: bash Compile/build.sh
   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest 
