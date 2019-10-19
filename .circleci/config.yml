@@ -5,9 +5,10 @@ jobs:
       - image: fadlyas/my-docker-image:latest
     steps:
       - run: apt-get -y update && apt-get -y upgrade
-      - run: git clone --quiet -j32 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 --depth=1 -b lineage-16.0 .
-      - run: checkout
-      - run: bash semaphore/build.sh
+      - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex
+      - run: chmod +x Clang-9.0.8-rolex
+      - run: bash Clang-9.0.8-rolex
   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest 
