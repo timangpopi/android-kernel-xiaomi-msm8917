@@ -1,23 +1,23 @@
 version: 2.1
 jobs:
-  compile:
-    docker:
-      - image: fadlyas/my-docker-image:latest
+  compile: #ur jobs
+    docker: #like ubuntu,debian,alpine or whatever
+      - image: fadlyas/my-docker-image:latest #my docker btw
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex
-      - run: chmod +x Clang-9.0.8-rolex
-      - run: bash Clang-9.0.8-rolex
-  compiletoo:
-    docker:
-      - image: fadlyas/my-docker-image:latest
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-rolex1
+      - run: chmod +x Clang-9.0.8-rolex1
+      - run: bash Clang-9.0.8-rolex1
+  compiletoo: #ur jobs2
+    docker: #like ubuntu,debian,alpine or whatever
+      - image: fadlyas/my-docker-image:latest #my docker btw
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-riva
-      - run: chmod +x Clang-9.0.8-riva
-      - run: bash Clang-9.0.8-riva
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/clang-9.0.8-riva1
+      - run: chmod +x clang-9.0.8-riva1
+      - run: bash clang-9.0.8-riva1
 workflows:
   version: 2.1
   cooking:
