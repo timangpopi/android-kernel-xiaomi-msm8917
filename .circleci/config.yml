@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  compile:
+  cooking:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
@@ -14,4 +14,4 @@ workflows:
   version: 2.1
   cooking:
     jobs:
-      - compile
+      - cooking
