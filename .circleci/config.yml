@@ -9,7 +9,7 @@ jobs:
       - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/uwow
       - run: chmod +x uwow
       - run; bash uwow
-   compiletoo:
+  compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
