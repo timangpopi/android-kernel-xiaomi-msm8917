@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  rolex:
+  compile:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
@@ -8,7 +8,7 @@ jobs:
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
       - run: git clone --depth=1 https://github.com/timangpopi/Anykernel-both compile
       - run: bash compile/build.sh
-   riva:
+   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
@@ -20,5 +20,5 @@ workflows:
   version: 2.1
   cooking:
     jobs:
-      - rolex
-      - riva
+      - compile
+      - compiletoo
