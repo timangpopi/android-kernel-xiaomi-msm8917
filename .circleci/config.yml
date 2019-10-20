@@ -6,16 +6,18 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: git clone --depth=1 https://github.com/timangpopi/Anykernel-both compile
-      - run: bash compile/build.sh
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/uwow
+      - run: chmod +x uwow
+      - run; bash uwow
    compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: git clone --depth=1 https://github.com/timangpopi/Anykernel-both compile
-      - run: bash compile/riva.sh
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/Clang-9.0.8-riva
+      - run: chmod +x Clang-9.0.8-riva
+      - run: bash Clang-9.0.8-riva
 workflows:
   version: 2.1
   cooking:
