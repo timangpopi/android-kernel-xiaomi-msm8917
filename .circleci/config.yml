@@ -6,9 +6,9 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/bacod
-      - run: chmod +x bacod
-      - run: bash bacod
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/try
+      - run: chmod +x try
+      - run: bash try
   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
