@@ -6,9 +6,9 @@ jobs:
     steps:
       - run: apt-get -y update && apt-get -y upgrade
       - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
-      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/clang
-      - run: chmod +x clang
-      - run: bash clang
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/clang-clung
+      - run: chmod +x clang-clung
+      - run: bash clang-clung
   compiletoo:
     docker:
       - image: fadlyas/my-docker-image:latest
