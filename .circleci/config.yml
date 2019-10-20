@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+  compile:
+    docker:
+      - image: fadlyas/my-docker-image:latest
+    steps:
+      - run: apt-get -y update && apt-get -y upgrade
+      - run: git clone --depth=1 https://github.com/timangpopi/android-kernel-xiaomi-msm8917 -b lineage-16.0 .
+      - run: wget https://raw.githubusercontent.com/timangpopi/semaphore/master/Circle/uwow
+      - run: chmod +x uwow
+      - run; bash uwow
+
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
